@@ -131,35 +131,36 @@ def download_video(url, stt_id):
 
 def get_url(url):
     print(url)
-    # try:
-    req = requests.get(url)
+    try:
+        req = requests.get(url)
 
-    root = html.fromstring(req.content)
-    links = root.xpath('//html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a[2]/@href')
+        root = html.fromstring(req.content)
+        links = root.xpath('//html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a[2]/@href')
 
-    if len(links) == 0:
-        links = root.xpath('/html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a/@href')
+        if len(links) == 0:
+            links = root.xpath('/html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a/@href')
 
 
-    if len(links) == 0:
+        if len(links) == 0:
+            return False
+
+        link = links[0]
+        print(link)
+        # "/html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a"
+
+
+
+        title = root.xpath('//html/body/div[2]/div[4]/div/div[5]/div[1]/div/div/a/h3/text()')[0]
+        des = root.xpath('//*[@id="showMoreDesc"]/text()')[0]
+        genres = root.xpath('//html/body/div[2]/div[4]/div/div[5]/div[1]/div/div/table/tbody/tr/td/a/text()')
+        genres = ','.join(genres)
+        title = title.replace('\n', '').replace('\r', '').strip()
+        des = des.replace('\n', '').replace('\r', '').strip()
+        genres = genres.replace('\n', '').replace('\r', '').strip()
+
+    except IndexError:
+        print("Link not found!")
         return False
-
-    link = links[0]
-    print(link)
-    # "/html/body/div[2]/div[4]/div/div[2]/div[2]/div[4]/a"
-
-    # except IndexError:
-    #     print("Link not found!")
-    #
-    #     return False
-
-    title = root.xpath('//html/body/div[2]/div[4]/div/div[5]/div[1]/div/div/a/h3/text()')[0]
-    des = root.xpath('//*[@id="showMoreDesc"]/text()')[0]
-    genres = root.xpath('//html/body/div[2]/div[4]/div/div[5]/div[1]/div/div/table/tbody/tr/td/a/text()')
-    genres = ','.join(genres)
-    title = title.replace('\n', '').replace('\r', '').strip()
-    des = des.replace('\n', '').replace('\r', '').strip()
-    genres = genres.replace('\n', '').replace('\r', '').strip()
 
     return {
         'link': link,

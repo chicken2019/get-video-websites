@@ -162,8 +162,8 @@ def handle(url, id_series, stt_id):
     print(link_video)
     print("Downloading video...")
 
-    # check = get_video(link_video, 'input', stt_id)
-    check = download_video_by_youtube_dl(link_video, stt_id)
+    check = get_video(link_video, 'input', stt_id)
+    # check = download_video_by_youtube_dl(link_video, stt_id)
 
     if check:
         title = arr_1['title'] + " eps " + str(eps)
