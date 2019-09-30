@@ -10,8 +10,6 @@ import re
 import time
 from lxml import html
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.chrome.options import Options
 
 
 def get_video(url, file_name, stt_id):
@@ -105,62 +103,111 @@ def save_to_file(id_series, id_chapt_new, stt_id):
 
 
 def download_video_by_youtube_dl(url, stt_id):
-    cmd = "youtube-dl -o " + str(stt_id) + "/downloads/input.%(ext)s " + str(url)
+    cmd = "youtube-dl -o " + str(stt_id) + "/downloads/input.mp4 " + str(url)
     os.system(cmd)
 
     return True
 
 
-def get_link_by_selenium(url):
-    chrome_options = Options()
-    chrome_options.set_headless(True)
-    driver = webdriver.Chrome('C:\chromedriver_win32\chromedriver.exe', options=chrome_options)
+def get_link_by_selenium(url, stt_id):
+    stt_id = str(stt_id)
 
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+
+    # time.sleep(15)
+    # driver.implicitly_wait(15)
+    # get series
+
+    url = "http://cimaclub.com"
     driver.get(url)
-    time.sleep(15)
-    driver.implicitly_wait(15)
 
-    html1 = driver.page_source
-    soup = BeautifulSoup(html1, 'lxml')
+    soup = BeautifulSoup(driver.page_source, 'lxml')
 
-    iframe = soup.find_all("iframe")
+    movies = soup.find(class_="moviesBlocks DataFill").find_all(class_="movie")
 
-    url2 = iframe[0].get('src')
-    print(url)
-    print(url2)
-    data_header = {
-        "referer": url
-    }
-    req = requests.get(url2, headers=data_header)
+    for movie in movies:
+        movie = movie.a.get('href')
+        link_movie = movie.replace("http://cimaclub.com/", '')
 
-    content = req.text
+        if link_movie[-1:] == '/':
+            link_movie = link_movie[:-1]
 
-    source = re.findall("sources: \[\"(.*?)\"", content)
+        #GET MOVIE
+
+        driver.get(movie)
+
+        soup = BeautifulSoup(driver.page_source, 'lxml')
+
+        seasons = soup.find(class_="seasons").find_all(class_="season")
+        data_season = seasons[len(seasons) - 1].get("data-filter")
+
+        newser = soup.find("div", {"class": "episode", "data-season": data_season}).a.get('href')
+
+        link_newser = newser
+        newser = newser.replace("http://cimaclub.com/", '')
+
+        if newser[-1:] == '/':
+            newser = newser[:-1]
+
+        check = check_exist_chapt(link_movie, newser, stt_id)
+
+        if check == False:
+            continue
+
+        title = soup.find(class_="titleCover").h1.string
+
+        #time.sleep(15)
+        #driver.implicitly_wait(15)
+
+        driver.get(link_newser + '?view=1')
+        html1 = driver.page_source
+
+        soup = BeautifulSoup(html1, 'lxml')
+
+        iframe = soup.find_all("iframe")
+        
+        url2 = iframe[0].get('src')
+
+        for i in iframe:
+            src = i.get('src')
+            if 'http://s7' in src:
+                url2 = src
+                break
+
+        
+        print(url)
+
+        data_header = {
+            "referer": url
+        }
+        driver.get(url2)
+        #req = requests.get(url2, headers=data_header)
+
+        #content = req.text
+        time.sleep(15)
+        driver.implicitly_wait(15)
+        content = driver.page_source
+        print(content)
+
+        source = re.findall("sources: \[\"(.*?)\"", content)[0]
+
+        check = handle(source, title, stt_id)
+        
+        if check:
+            print("DOne!")
+            save_to_file(link_movie, newser, stt_id)
 
     driver.close()
     driver.quit()
 
-    return source
+    return
 
 
-def handle(url, id_series, stt_id):
-    start = datetime.datetime.now()
-    print("Finding link...")
-
-    arr_1 = get_url_1(url)
-    arr_2 = get_data_id(arr_1['url'])
-
-    eps = int(arr_2['ep'])
-    check = check_exist_chapt(id_series, eps, stt_id)
-
-    if check is False:
-        return True
-
-    # url2 = "https://www6.fmovies.to/ajax/episode/info?ts=" + str(arr_1['data_ts']) + "&id=" + str(arr_2['data_id']) + "&server=33"
-    # url3 = get_url_2(url2, url, arr_2['data_path'])
-
-    # link_video = get_url_3(url3, url, arr_2['data_path'])
-    link_video = get_link_by_selenium(url + '/' + arr_2['data_path'])
+def handle(link_video, title, stt_id):
 
     print(link_video)
     print("Downloading video...")
@@ -169,17 +216,16 @@ def handle(url, id_series, stt_id):
     check = download_video_by_youtube_dl(link_video, stt_id)
 
     if check:
-        title = arr_1['title'] + " eps " + str(eps)
-        description = arr_1['des']
-        genres = arr_1['genres']
+        description = title
+        genres = ''
 
         print("Processing...")
 
         os.system('ffmpeg -noaccurate_seek -ss 00:12:00 -i '
-                  + str(stt_id) + '\\downloads\\input.mp4 -to 00:02:50 -c copy '
-                  + str(stt_id) + '\\downloads\\output.mp4')
+                  + str(stt_id) + '/downloads/input.mp4 -to 00:02:50 -c copy '
+                  + str(stt_id) + '/downloads/output.mp4')
 
-        file_name = str(stt_id) + '\\downloads\\output.mp4'
+        file_name = str(stt_id) + '/downloads/output.mp4'
 
         print('Uploading...')
         # (isFirstUpload(stt_id))
@@ -193,13 +239,11 @@ def handle(url, id_series, stt_id):
         else:
             check = upload_youtube_and_check_out_number(title, description, '', str(file_name), stt_id)
 
-        os.remove(str(stt_id) + '\\downloads\\input.mp4')
+        os.remove(str(stt_id) + '/downloads/input.mp4')
         os.remove(file_name)
 
-        end = datetime.datetime.now()
-        print(end - start)
 
-        return eps
+        return check
 
     return check
 
@@ -325,9 +369,11 @@ def get_series():
     result = []
 
     for stt in range(1, 3):
-        url = 'https://www6.fmovies.to/tv-series?page=' + str(stt)
+        url = 'http://cimaclub.com?page=' + str(stt)
 
         req = requests.get(url)
+        print(req.content)
+        break
         be = BeautifulSoup(req.content, 'lxml')
 
         arr_str = be.find(class_='row movie-list').find_all(class_="name")
@@ -341,35 +387,39 @@ def get_series():
     return result
 
 
-get_link_by_selenium('http://cimaclub.com/%D9%85%D8%B3%D9%84%D8%B3%D9%84-%D8%AD%D8%AF%D9%88%D8%AA%D8%A9-%D8%AD%D8%A8-%D8%A7%D9%84%D8%AC%D8%B2%D8%A1-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%AD%D9%84%D9%82%D8%A9-37-%D8%A7%D9%84/?view=1')
+# source = get_link_by_selenium('http://cimaclub.com/%D9%85%D8%B3%D9%84%D8%B3%D9%84-%D8%AD%D8%AF%D9%88%D8%AA%D8%A9-%D8%AD%D8%A8-%D8%A7%D9%84%D8%AC%D8%B2%D8%A1-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%AD%D9%84%D9%82%D8%A9-37-%D8%A7%D9%84/?view=1')
+# print(source)
+#
+# check = download_video_by_youtube_dl(source[0], '1')
 
+get_link_by_selenium('', 1)
 # if __name__ == '__main__':
 #     stt_id = str(input("Enter id: "))
 #
-#     while True:
-#         try:
+#     # while True:
+#         # try:
 #             # arr_website_avail = get_source_links(stt_id)
-#             arr_website_avail = get_series()
+#     arr_website_avail = get_series()
 #
-#             for id in arr_website_avail:
-#                 black_lists = get_black_lists()
-#                 check_1 = id not in black_lists
+#     for id in arr_website_avail:
+#         black_lists = get_black_lists()
+#         check_1 = id not in black_lists
 #
-#                 if check_1 is True:
-#                     url = "https://www6.fmovies.to/film/" + id
-#                     print(url)
-#                     eps = handle(url, id, stt_id)
+#         if check_1 is True:
+#             url = "https://www6.fmovies.to/film/" + id
+#             print(url)
+#             eps = handle(url, id, stt_id)
 #
-#                     if eps is True:
-#                         continue
+#             if eps is True:
+#                 continue
 #
-#                     if eps != False:
-#                         print('Done!')
-#                         save_to_file(id, int(eps), stt_id)
-#                         time.sleep(100)
-#                     else:
-#                         print('Waiting next turn')
-#                         time.sleep(7200)
+#             if eps != False:
+#                 print('Done!')
+#                 save_to_file(id, int(eps), stt_id)
+#                 time.sleep(100)
+#             else:
+#                 print('Waiting next turn')
+#                 time.sleep(7200)
 #
-#         except:
-#             print("Error!")
+#         # except:
+#         #     print("Error!")
