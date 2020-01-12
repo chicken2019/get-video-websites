@@ -2,161 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6693db0f-5e88-42e1-bf26-c1dc80a621dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/watchlakorn-and-audio/downloading.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/get-video-websites.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/get-video-websites.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/watchlakorn-and-content.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/blacklists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/1/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/1/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/1/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/2/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/2/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/3/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/3/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/4/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/4/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/5/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/5/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/6/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/checking/6/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/max-video.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/stt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/1.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/2.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/3.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/4.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/5.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/6.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/7.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/1/videos/8.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/blacklists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/1/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/1/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/1/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/2/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/2/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/3/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/3/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/4/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/4/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/5/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/5/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/6/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/6/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/7/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/checking/7/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/max-video.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/stt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/1.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/10.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/11.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/12.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/13.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/14.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/15.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/16.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/17.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/18.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/19.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/2.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/20.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/21.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/3.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/4.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/5.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/6.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/7.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/8.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/2/videos/9.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/blacklists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/1/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/1/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/2/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/2/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/3/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/3/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/4/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/checking/4/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/max-video.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/page_access_token.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/stt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/1.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/10.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/11.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/12.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/13.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/14.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/15.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/16.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/17.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/18.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/19.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/2.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/20.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/21.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/22.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/23.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/24.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/3.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/4.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/5.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/6.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/7.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/8.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/3/videos/9.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/blacklists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/1/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/1/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/1/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/2/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/2/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/3/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/3/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/4/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/4/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/5/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/5/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/6/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/checking/6/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/max-video.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/save-data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/source-links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/stt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/temp.mp4.ytdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/1.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/2.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/3.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/4.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/5.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/6.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/4/videos/7.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/client_secrets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/watchlakorn-and-content/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/audio.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/audio.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/audio2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/create-video-from-audio-and-image.py" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/create-video-from-audio-and-image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/image.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/video_audio.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn-and-audio/downloading.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/1/blacklists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/1/blacklists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/1/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/1/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/1/save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/1/save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/6/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/6/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/6/save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/6/save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/7/blacklists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/7/blacklists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/7/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/7/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/7/save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/7/save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/8/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/8/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/8/save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/8/save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watchlakorn/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/watchlakorn/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/watchlakorn/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="391" column="30" selection-start-line="391" selection-start-column="30" selection-end-line="391" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,15 +49,85 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>hls-prefer-nativ</find>
+      <find>save</find>
+      <find>list_ten_minute</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/watchlakorn-and-audio/downloading.py" />
+        <option value="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/create-video-from-audio-and-image.py" />
+        <option value="$PROJECT_DIR$/download/save-data.txt" />
+        <option value="$PROJECT_DIR$/download/downloading.py" />
+        <option value="$PROJECT_DIR$/watchlakorn/main.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
   <component name="ProjectId" id="1Uuxf3tf4bgEk5wNnPKxVLOzEiZ" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="get-video-websites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="get-video-websites" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="get-video-websites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="get-video-websites" type="462c0819:PsiDirectoryNode" />
+              <item name="download" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="get-video-websites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="get-video-websites" type="462c0819:PsiDirectoryNode" />
+              <item name="watchlakorn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="get-video-websites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="get-video-websites" type="462c0819:PsiDirectoryNode" />
+              <item name="watchlakorn" type="462c0819:PsiDirectoryNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="get-video-websites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="get-video-websites" type="462c0819:PsiDirectoryNode" />
+              <item name="watchlakorn" type="462c0819:PsiDirectoryNode" />
+              <item name="7" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\python\youtube\get-video-websites\download" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -187,7 +141,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.downloading">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="create-video-from-audio-and-image" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="get-video-websites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/watchlakorn-and-audio/1/videos" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/watchlakorn-and-audio/1/videos/create-video-from-audio-and-image.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="downloading (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="get-video-websites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/download" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/download/downloading.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="downloading" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="get-video-websites" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -200,28 +196,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/watchlakorn-and-audio/downloading.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="get-video-websites" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/watchlakorn-and-content" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/watchlakorn-and-content/main.py" />
+      <option name="SCRIPT_NAME" value="E:\project\python\youtube\get-video-websites\download\downloading.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -259,11 +234,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cimaclub" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/watchlakorn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cimaclub/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/watchlakorn/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -274,10 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.downloading (1)" />
+        <item itemvalue="Python.create-video-from-audio-and-image" />
         <item itemvalue="Python.downloading" />
         <item itemvalue="Python.main (2)" />
-        <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -294,17 +270,121 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30605564" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/watchlakorn-and-audio/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8347">
+          <caret line="501" selection-start-line="501" selection-end-line="501" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn-and-audio/1/videos/create-video-from-audio-and-image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download/save-data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download/downloading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="577" column="32" lean-forward="true" selection-start-line="577" selection-start-column="32" selection-end-line="577" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn/1/credentials.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn/1/blacklists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn/1/source-links.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn/1/save-data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchlakorn/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="391" column="30" selection-start-line="391" selection-start-column="30" selection-end-line="391" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

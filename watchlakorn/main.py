@@ -27,6 +27,8 @@ headers_postman = {
     # 'X-Powered-By' : 'PHP/5.6.40'subprocess
 }
 
+list_ten_minute = ['6', '7', '8']
+
 
 def getCodeKt(content):
     video = content.find(id="videoclip")
@@ -57,6 +59,9 @@ def getPlayList(url, id_series, stt_id):
     re = requests.get(url, headers=headers_mobile)
     content = BeautifulSoup(re.content, 'lxml')
     code_kt = getCodeKt(content)
+
+    title = content.find("title").text
+    title = title.replace(" - WatchLaKorn", "")
 
     if code_kt is False:
         return False
@@ -92,11 +97,6 @@ def getPlayList(url, id_series, stt_id):
 
     if int(year) < 2019:
         add_to_black_lists(id_series, stt_id)
-
-        return False
-
-    if int(month) < 3:
-
         return False
 
     re3 = requests.get(url_play_list, headers=headers)
@@ -108,7 +108,7 @@ def getPlayList(url, id_series, stt_id):
         if '.ts' in item:
             result.append(item)
 
-    return result
+    return {'title': title, 'url_playlist': url_play_list, 'datas': result}
 
 
 def delete_all_video(stt_id):
@@ -241,38 +241,48 @@ def save_to_file(id_series, id_chapt_new, stt_id):
     return True
 
 
-def get_new_video(id_series, stt_web):
-    url = "https://www.watchlakorn.in/feed/" + str(id_series) + "/rss.xml"
-    
-    req = requests.get(url)
-    be = BeautifulSoup(req.content, 'lxml')
+def get_video_id(url):
+    arr = url.split("-")
+    last = arr[len(arr) - 1]
+    id = last.replace('\\', "")
 
-    arr_str = be.find_all('item')
+    return id
 
-    if len(arr_str) > 0:
-        for item in arr_str:
-            string_item = str(item)
-            id_video = re.findall(r'video-(.*?) ', string_item)[0]
 
-            if check_exist_chapt(id_series, id_video, stt_web):
-                title = item.find('title').string
-                title = title.replace(' - WatchLaKorn', '')
+def get_new_video(id_series, stt_id, black_lists):
+    url = "https://www.watchlakorn.in/ajax.php?module=load_category&name=load_category&group=" + str(id_series) + "&category=&searchby=&stype=&searchdate=&"
 
-                index = title.rfind('-')
-                title = title[:index]
-                title = title.replace(' 2562', '')
+    headers = {
+        'referer': 'https://www.watchlakorn.in/%E0%B8%81%E0%B8%B5%E0%B8%AC%E0%B8%B2-channel-14'
+    }
 
-                link = re.findall(r'<link/>(.*?) ', string_item)[0]
-                thumbnail = item.find('media:thumbnail').get('url')
+    req = requests.get(url, headers=headers)
+    content = req.content
 
-                return {
-                    'title': title,
-                    'link': link,
-                    'thumbnail': thumbnail,
-                    'id_video': id_video
-                }
+    id_videos = re.findall(r'div class="vid_thumb"(.*?)</div>', str(content))
+    list_wrap_info = re.findall(r'div class="vid_info_wrap"(.*?)</div>', str(content))
 
-            break
+    stt = 0
+
+    for item in id_videos:
+        item_warap = list_wrap_info[stt]
+        list_cate = re.findall(r'onclick="load_category\((.*?)\)', item_warap)
+        cat = list_cate[1]
+        cat = cat.replace("\\", "")
+
+        cat_id = cat.split(",")[2]
+        cat_id = cat_id.replace("'", "")
+
+        link = re.findall(r'<a href=\\\'(.*?)\'', str(item))[0]
+        video_id = get_video_id(link)
+
+        if check_exist_chapt(cat_id, video_id,  stt_id) and video_id not in black_lists:
+            return {
+                'link': "https://www.watchlakorn.in" + link,
+                'id_video': video_id,
+                'series_id': int(cat_id)
+            }
+        stt = stt + 1
 
     return False
 
@@ -308,18 +318,18 @@ def get_string_video(stt_id):
 
 
 def upload_youtube_and_check_out_number(title, description, tags, file_name, thumbnail, stt_id):
-    stdout = subprocess.check_output(['youtube-upload', '--title=' + str(title) + '', '--tags="' + str(tags) + '"',
-                                      '--description=' + str(description) + '',
-                                      '--client-secrets=client_secrets.json',
-                                      '--credentials-file=' + str(stt_id) + '/credentials.json', str(file_name)])
-    #'--thumbnail=' + thumbnail,
-    #
-    # arr = ['youtube-upload', '--title="' + str(title) + '"', '--tags=' + tags + '', '--description=' + description + '', '--client-secrets=' + stt_id + '/client_secrets.json', '--credentials-file=' + stt_id + '/credentials.json', file_name]
-    # print(arr)
-    # result = subprocess.run(arr, stdout=subprocess.PIPE)
+    # stdout = subprocess.check_output(['youtube-upload', '--title=' + str(title) + '', '--tags="' + str(tags) + '"',
+    #                                   '--description=' + str(description) + '',
+    #                                   '--client-secrets=client_secrets.json',
+    #                                   '--credentials-file=' + str(stt_id) + '/credentials.json', str(file_name)])
 
-    print(stdout)
-    return len(stdout) > 0
+    url = 'youtube-upload --title="' + str(
+                title) + '" --description="' + description + '" --tags="' + '' + '" ' + '--client-secrets=client_secrets.json --credentials-file=' + str(stt_id) + '/credentials.json ' + str(file_name)
+
+    output = subprocess.check_output(url, shell=True, stderr=subprocess.STDOUT)
+
+    print(output)
+    return len(output) > 0
     # return 'Video URL' in str(result.stdout)
 
 
@@ -346,76 +356,57 @@ def get_data_file(file_name, stt_id):
     return stt_video
 
 
-def handle(id_series, stt_id, option):
-    arr = get_new_video(id_series, stt_id)
+def handle(cat_id, stt_id, black_lists):
+    arr = get_new_video(cat_id, stt_id, black_lists)
 
     if arr != False:
-        title = str(arr['title'])
-        description = str(get_description(arr['id_video']))
-
         url = arr['link']
-        thumbnail = arr['thumbnail']
+        id_series = arr['series_id']
 
         start = datetime.datetime.now()
         result = getPlayList(url.encode('utf-8'), id_series, stt_id)
 
-        if result == False or len(result) == 0:
+        if result == False or len(result['datas']) == 0:
             add_to_black_lists(id_series, stt_id)
 
             return False
 
         print("Downloading...")
+        datas = result['datas']
+        title = result['title']
 
-        for i in range(len(result)):
-            if stt_id == '6' or stt_id == '8':
-                if i > 60:
+        description = title
+        thumbnail = ''
+        url_playlist = result['url_playlist']
+
+        if str(stt_id) in list_ten_minute:
+            for i in range(len(datas)):
+                if stt_id == '6' or stt_id == '8':
+                    if i > 60:
+                        break
+                if stt_id == '7' and i > 15:
                     break
-            if stt_id == '7' and i > 15:
-                break
 
-            os.system('youtube-dl "' + result[i] + '" --output "' + str(stt_id) + '/downloads/' + str(("00" + str(i + 1))[-3:]) + '.%(ext)s"')
+                os.system('youtube-dl "' + datas[i] + '" --output "' + str(stt_id) + '/downloads/' + str(("00" + str(i + 1))[-3:]) + '.%(ext)s"')
 
-        string = get_string_video(stt_id)
+            string = get_string_video(stt_id)
 
-        os.system('ffmpeg -i "concat:' + string + '" -c copy -bsf:a aac_adtstoasc ' + str(stt_id) + '/input.mp4')
-        delete_all_video(stt_id)
+            os.system('ffmpeg -i "concat:' + string + '" -c copy -bsf:a aac_adtstoasc ' + str(stt_id) + '/input.mp4')
+            delete_all_video(stt_id)
+
+        else:
+            url_download = "youtube-dl --console-title --hls-prefer-native --hls-use-mpegts -c --no-part --fixup never \"" + url_playlist + "\" -o " + str(stt_id) + "/input.mp4"
+            os.system(url_download)
+
         file_name = str(stt_id) + '/input.mp4'
-
-        if option == 'download':
-            print(title)
-            save_to_file(id_series, arr['id_video'], stt_id)
-            return
-
-        if option == 'render_and_upload':
-            print(2)
-            file_name = scale_video()
-
-        if option == 'download_and_render':
-            file_name = scale_video()
-            print(title)
-            return
-        print(4)
-        if (isFirstUpload(stt_id)):
+        #isFirstUpload(stt_id)
+        if (True):
             os.system('youtube-upload --title="' + str(
                 title) + '" --description="' + description + '" --tags="' + '' + '" ' + '--client-secrets=client_secrets.json --credentials-file=' + str(stt_id) + '/credentials.json ' + str(file_name))
 
             check = True
         else:
             check = upload_youtube_and_check_out_number(title, description, '', str(file_name), thumbnail, stt_id)
-
-        stt_access = 7
-
-        if int(stt_id) == 1 or int(stt_id) == 3 or int(stt_id) == 5:
-            stt_access = 3
-
-        if int(stt_id) == 7 or int(stt_id) == 6 or int(stt_id) == 8 or stt_access != 7:
-            id_page = "me"
-            access_token = get_data_file('page_access_token.txt', stt_access)
-            string_upload = "node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
-                        + "\" --title=\"" + title + "\" --des=\"" \
-                        + description + " \" --video=\"" + str(file_name) + "\" --tags=\"" + "" + "\" --thumb=\"" + "" + "\""
-
-            #os.system(string_upload)
 
         os.remove(str(stt_id) + '/input.mp4')
 
@@ -444,41 +435,65 @@ def add_to_black_lists(id_series, stt_id):
     fo.close()
 
 
-def main(option, stt_id, arr_website_avail):
+def main(stt_id, arr_website_avail):
     check = True
     black_lists = get_black_lists(stt_id)
 
     while check:
-        try:
-            for id in arr_website_avail:
-                if id not in black_lists:
-                    handle(id, stt_id, option)
+        # try:
+        for id in arr_website_avail:
+            handle(id, stt_id, black_lists)
 
 
-            check = False
-        except (ValueError, ConnectionError) as e:
-            print("Connect fail!")
-            check = True
+        check = False
+        # except (ValueError, ConnectionError) as e:
+        #     print("Connect fail!")
+        #     check = True
     
     print("Current is: " + str(stt_id))
 
 
+def get_real_url_video_from_series(id, stt_id):
+    results = []
+    url = "https://www.watchlakorn.in/ajax.php?module=load_category&name=load_category&group=" + str(id) + "&category=&searchby=&stype=&searchdate=0&st=0"
+
+    headers = {
+        'referer': 'https://www.watchlakorn.in/%E0%B8%81%E0%B8%B5%E0%B8%AC%E0%B8%B2-channel-14'
+    }
+
+    req = requests.get(url, headers=headers)
+    content = req.content
+
+    id_videos = re.findall(r'div class="vid_thumb"(.*?)</div>', str(content))
+    list_wrap_info = re.findall(r'div class="vid_info_wrap"(.*?)</div>', str(content))
+
+    stt = 0
+
+    for item in id_videos:
+        item_warap = list_wrap_info[stt]
+        list_cate = re.findall(r'onclick="load_category\((.*?)\)', item_warap)
+        cat = list_cate[1]
+        cat = cat.replace("\\", "")
+        cat_id = cat.split(",")[2]
+
+        link = re.findall(r'<a href=\\\'(.*?)\'', str(item))[0]
+        video_id = get_video_id(link)
+
+        if check_exist_chapt(cat_id, video_id, stt_id):
+            results.append(link)
+
+        stt = stt + 1
+
+    return results
+
+
 if __name__ == '__main__':
-    #option_handle = str(input("Enter id: "))
-    option_handle = "auto"
+    stt_id = str(input("Enter id: "))
 
-    if option_handle != 'auto':
-        stt_id = str(input("Enter id: "))
+    arr_website_avail = get_source_links(stt_id)
 
-        handle(option_handle, stt_id, 'download')
-    else:
-        option = 'upload'
-        stt_id = str(input("Enter id: "))
+    while True:
+        main(stt_id, arr_website_avail)
 
-        arr_website_avail = get_source_links(stt_id)
-
-        while True:
-            main(option, stt_id, arr_website_avail)
-
-            print("waiting next turn!")
-            time.sleep(7200)
+        print("waiting next turn!")
+        time.sleep(7200)
