@@ -495,5 +495,5 @@ if __name__ == '__main__':
     while True:
         main(stt_id, arr_website_avail)
 
-        print("waiting next turn!")
-        time.sleep(7200)
+        #print("waiting next turn!")
+        time.sleep(100)
