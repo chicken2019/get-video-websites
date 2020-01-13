@@ -381,10 +381,7 @@ def handle(cat_id, stt_id, black_lists):
 
         if str(stt_id) in list_ten_minute:
             for i in range(len(datas)):
-                if stt_id == '6' or stt_id == '8':
-                    if i > 60:
-                        break
-                if stt_id == '7' and i > 15:
+                if i > 15:
                     break
 
                 os.system('youtube-dl "' + datas[i] + '" --output "' + str(stt_id) + '/downloads/' + str(("00" + str(i + 1))[-3:]) + '.%(ext)s"')
@@ -488,12 +485,13 @@ def get_real_url_video_from_series(id, stt_id):
 
 
 if __name__ == '__main__':
-    stt_id = str(input("Enter id: "))
+    # stt_id = str(input("Enter id: "))
+    stt_ids = ['6', '7', '8']
 
-    arr_website_avail = get_source_links(stt_id)
+    for stt_id in stt_ids:
+        arr_website_avail = get_source_links(stt_id)
 
-    while True:
         main(stt_id, arr_website_avail)
 
         #print("waiting next turn!")
-        time.sleep(100)
+        time.sleep(50)
